@@ -1,1 +1,1 @@
-# MIT_6.00.1x psets and solutions
+# MITx 6.00.1x psets and solutions
