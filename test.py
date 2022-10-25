@@ -1,0 +1,1 @@
+print('This is an attempt to push code to GitHub using git bash')
