@@ -9,13 +9,10 @@ def part_c(initial_deposit):
     ##################################################################################################
     ## Determine the lowest rate of return needed to get the down payment for your dream home below ##
     ##################################################################################################
-
     if initial_deposit >= down_payment - tol:
         r = 0
         steps = 0
-    elif (
-        initial_deposit * (1 + 1 / 12) ** months - down_payment
-    ) < tol:  # if the rate is too high
+    elif (initial_deposit * (1 + 1 / 12) ** months - down_payment) < tol:
         r = None
         steps = 0
     else:
