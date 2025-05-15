@@ -23,7 +23,7 @@ tol = 100  # dollar tolerance
 if initial_deposit >= down_payment - tol:
     r = 0
     steps = 0
-elif (initial_deposit * (1 + 1 / 12) ** months - down_payment) < tol:
+elif initial_deposit * (1 + 1.0 / 12) ** months < down_payment - tol:
     r = None
     steps = 0
 else:
