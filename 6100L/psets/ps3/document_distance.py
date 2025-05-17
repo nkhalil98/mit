@@ -112,9 +112,6 @@ def calculate_similarity_score(freq_dict1, freq_dict2):
         diff += abs(freq1 - freq2)
         sum_ += freq1 + freq2
 
-    if sum_ == 0:
-        return 0.0
-
     return round(1 - (diff / sum_), 2)
 
 
@@ -139,19 +136,10 @@ def get_most_frequent_words(freq_dict1, freq_dict2):
     If multiple words are tied (i.e. share the same highest frequency),
     return an alphabetically ordered list of all these words.
     """
-    freqs = {}
+    freqs = freq_dict1.copy()
 
-    for word in freq_dict1:
-        if word in freqs:
-            freqs[word] += freq_dict1[word]
-        else:
-            freqs[word] = freq_dict1[word]
-
-    for word in freq_dict2:
-        if word in freqs:
-            freqs[word] += freq_dict2[word]
-        else:
-            freqs[word] = freq_dict2[word]
+    for word, count in freq_dict2.items():
+        freqs[word] = freqs.get(word, 0) + count
 
     max_freq = max(freqs.values())
     most_frequent = [word for word, freq in freqs.items() if freq == max_freq]

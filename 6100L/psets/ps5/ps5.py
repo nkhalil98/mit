@@ -41,7 +41,7 @@ def matrix_multiply(m1, m2):
     """
 
     product = numpy.matmul(m1, m2)
-    if type(product) == numpy.int64:
+    if type(product) is numpy.int64:
         return float(product)
     else:
         result = list(product)
@@ -143,9 +143,9 @@ def extract_end_bits(num_end_bits, pixel):
         The num_end_bits of pixel, as an integer (BW) or tuple of integers (RGB).
     """
     divisor = 2**num_end_bits
-    if type(pixel) == int:  # BW pixel
+    if type(pixel) is int:  # BW pixel
         return pixel % divisor
-    elif type(pixel) == tuple:  # RGB pixel
+    elif type(pixel) is tuple:  # RGB pixel
         return tuple([int(x % divisor) for x in pixel])
 
 
